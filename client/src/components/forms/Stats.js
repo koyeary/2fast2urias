@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 //import { connect } from 'react-redux';
 
-const RegisterForm = () => {
+const Stats = () => {
     return (
         <Fragment>
-            <h1>Register</h1>
+            <h1>Stats</h1>
         </Fragment>
     )
 }
 
-export default RegisterForm;
+export default Stats;
