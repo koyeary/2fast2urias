@@ -2,12 +2,11 @@ import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Routes from './components/routing/Routes';
 import Landing from './components/layout/Landing';
-
+import Navbar from './components/layout/NavBar';
 
 // Redux
 //import { Provider } from 'react-redux';
 //import store from './store';
-
 
 const App = () => {
   /* useEffect(() => {
@@ -24,14 +23,16 @@ const App = () => {
   }, []);
  */
   return (
-      <Router>
-        <Fragment>
-          <Route exact path="/" component={Landing}/>
+    <Router>
+      <Fragment>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Landing} />
           <Route component={Routes} />
-        </Fragment>
-      </Router>
+        </Switch>
+      </Fragment>
+    </Router>
   );
 };
 
 export default App;
-
