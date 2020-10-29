@@ -18,7 +18,6 @@ const UserSchema = new Schema({
   menstrual: {
     type: Boolean
   },
-
   date: {
     type: Date,
     default: Date.now
