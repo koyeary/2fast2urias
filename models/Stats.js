@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const Schema   = mongoose.Schema;
 
 const StatsSchema = new Schema ({
     user: {
@@ -16,7 +16,7 @@ const StatsSchema = new Schema ({
       energy: {
         type: Number,
         required: true
-      }
+      },
       hoursSlept: {
         type: Number
       },

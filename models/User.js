@@ -1,7 +1,7 @@
-  
 const mongoose = require('mongoose');
+const Schema   = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -15,9 +15,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  avatar: {
-    type: String
+  menstrual: {
+    type: Boolean
   },
+
   date: {
     type: Date,
     default: Date.now
