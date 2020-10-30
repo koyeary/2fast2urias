@@ -1,11 +1,51 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Nav, Button } from 'react-bootstrap';
+import { logout } from '../../actions/auth';
 
-const Navbar = () => {
+const Navbar = ({auth: { isAuthenticated }, logout}) => {
+  const authLinks = (
+    <ul className='navbar-nav mr-auto'>
+      <li>
+        <Link to="/dashboard">
+          <i className="fas fa-user" />{' '}
+          <span className="hide-sm">Dashboard</span>
+        </Link>
+      </li>
+      <li>
+        <a onClick={logout} href="#!">
+          <i className="fas fa-sign-out-alt" />{' '}
+          <span className="hide-sm">Logout</span>
+        </a>
+      </li>
+    </ul>
+  ); 
+
+  const guestLinks = (
+    <ul>
+      <li>
+        <Link to="/register">Sign Up</Link>
+      </li>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
+    </ul>
+  );
+
   return (
-    <Fragment>
+      <nav className="navbar bg-dark">
+        <h1>
+          <Link to="/">
+            <i className="fas fa-code" /> DevConnector
+          </Link>
+        </h1>
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      </nav>
+  );
+  };
+   /*  <Fragment>
       <Nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <Link className='navbar-brand' to='#'>
           Navbar
@@ -25,13 +65,14 @@ const Navbar = () => {
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul className='navbar-nav mr-auto'>
             <li className='nav-item active'>
-              <Link className='nav-link' to='#'>
+              <Link className='nav-link' to='/'>
                 Home <span className='sr-only'>(current)</span>
               </Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='#'>
-                Link
+              <Link className='nav-link' to='register'>
+                <i className= "fa fa-user" />{' '}
+                <span>Logout</span>
               </Link>
             </li>
             <li className='nav-item dropdown'>
@@ -81,8 +122,16 @@ const Navbar = () => {
           </form>
         </div>
       </Nav>
-    </Fragment>
-  );
-};
+    </Fragment> */
 
-export default Navbar;
+
+    Navbar.propTypes = {
+      logout: PropTypes.func.isRequired,
+      auth: PropTypes.object.isRequired
+    };
+    
+    const mapStateToProps = (state) => ({
+      auth: state.auth
+    });
+    
+    export default connect(mapStateToProps, { logout })(Navbar);

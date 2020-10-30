@@ -1,10 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
-const Landing = () => {
-
+const Landing = ({ isAuthenticated }) => {
+    if(isAuthenticated) {
+        <Redirect to='/dashboard'/>
+      }
+    
     return(
         <Fragment>
             <h1>Landing page</h1>
@@ -16,4 +20,13 @@ const Landing = () => {
     )
 }
 
-export default Landing;
+Landing.propTypes = {
+    isAuthenticated: PropTypes.bool
+  }
+  
+  const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+  });
+  
+  export default connect(mapStateToProps)(Landing);
+  
