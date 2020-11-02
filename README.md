@@ -9,7 +9,7 @@ It's not that the technology to identify these patterns doesn't exist, the probl
 Anyone interested in practicing mindfulness, or who just wants to feel better, can benefit. 
 
 ### Technology
-MERN stack application (Mongoose, Express, React/Redux, and NodeJS). 
+MERN stack application (Mongoose, Express, React/Redux, and NodeJS). JWT and Google OAuth2 authentication.
 
 ### Author
 Kat Yeary, &copy; 2020
