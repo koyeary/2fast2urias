@@ -7,6 +7,7 @@ const Dashboard = () => {
     return (
         <Fragment>
             <h1>Dashboard</h1>
+            <Link to="/stats">mood</Link>
         </Fragment>
     )
 }

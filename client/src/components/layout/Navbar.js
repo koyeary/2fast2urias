@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Nav, Button } from 'react-bootstrap';
 import { logout } from '../../actions/auth';
 
-const Navbar = ({auth: { isAuthenticated }, logout}) => {
+const Navbar = ({ auth: { isAuthenticated }, logout}) => {
   const authLinks = (
     <ul className='navbar-nav mr-auto'>
       <li>
