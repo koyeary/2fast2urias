@@ -12,4 +12,4 @@ Anyone interested in practicing mindfulness, or who just wants to feel better, c
 MERN stack application (Mongoose, Express, React/Redux, and NodeJS). 
 
 ### Author
-Kat Yeary, &copy 2020
+Kat Yeary, &copy; 2020
